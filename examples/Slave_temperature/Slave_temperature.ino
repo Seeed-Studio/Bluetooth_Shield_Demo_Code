@@ -29,8 +29,8 @@ For more details about the product please check http://www.seeedstudio.com/depot
 /* Upload this sketch into Seeeduino and press reset*/
 
 #include <SoftwareSerial.h>   //Software Serial Port
-#define RxD 7
-#define TxD 6
+#define RxD 9
+#define TxD 8
 
 #define DEBUG_ENABLED  1
 
@@ -77,7 +77,7 @@ void loop()
             }
         }
         if(Serial.available())
-        {//check if there's any data sent from t he local serial terminal, you can add the other applications here
+        {//check if there's any data sent from the local serial terminal, you can add the other applications here
             recvChar  = Serial.read();
             blueToothSerial.print(recvChar);
         }
@@ -89,23 +89,15 @@ void loop()
 
 
 void setupBlueToothConnection()
-{          
-    blueToothSerial.begin(9600);  
-	
-	blueToothSerial.print("AT");
-	delay(400); 
-	
-	blueToothSerial.print("AT+NAMESeeedBTSlave");    // set the bluetooth name as "SeeedBTSlave" ,the length of bluetooth name must less than 12 characters.
-	delay(400);
-	
-	blueToothSerial.print("AT+ROLES");             // set the bluetooth work in slave mode
-	delay(400); 
-	
-    blueToothSerial.print("AT+PIN0000");             // set the pair code to connect 
-	delay(400);
-	
-	blueToothSerial.print("AT+AUTH1");             // Auto-connection should be forbidden here
-    delay(400);    
-
+{
+    blueToothSerial.begin(38400);                           // Set BluetoothBee BaudRate to default baud rate 38400
+    blueToothSerial.print("\r\n+STWMOD=0\r\n");             // set the bluetooth work in slave mode
+    blueToothSerial.print("\r\n+STNA=SeeedBTSlave\r\n");    // set the bluetooth name as "SeeedBTSlave"
+    blueToothSerial.print("\r\n+STOAUT=1\r\n");             // Permit Paired device to connect me
+    blueToothSerial.print("\r\n+STAUTO=0\r\n");             // Auto-connection should be forbidden here
+    delay(2000);                                            // This delay is required.
+    blueToothSerial.print("\r\n+INQ=1\r\n");                // make the slave bluetooth inquirable
+    Serial.println("The slave bluetooth is inquirable!");
+    delay(2000);                                            // This delay is required.
     blueToothSerial.flush();
 }
