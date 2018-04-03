@@ -1,6 +1,8 @@
 Bluetooth Shield Demo Code
 ---------------------------------------------------------
-[![Bluetooth Shield](http://www.seeedstudio.com/depot/images/product/Bluetooth%20Sld.jpg)](http://www.seeedstudio.com/depot/bluetooth-shield-p-866.html?cPath=19_21)
+[![Bluetooth Shield](https://statics3.seeedstudio.com/images/product/113030002%201.jpg)](http://www.seeedstudio.com/depot/bluetooth-shield-p-866.html?cPath=19_21)
+
+[Bluetooth Shield](https://www.seeedstudio.com/Bluetooth-Shield-p-866.html)
 
 The Bluetooth Shield integrates a Serial Bluetooth module. It can be easily used with Arduino/Seeedstudio for transparent wireless serial communication. You can choose two pins from Arduino D0 to D7 as Software Serial Ports to communicate with Bluetooth Shield (D0 and D1 is Hardware Serial Port). The shield also has two Grove connectors (one is Digital, the other is Analog) for you to install Grove modules.
 
@@ -21,7 +23,7 @@ Specifications:
 
 This code include some examples which can show you how to use the Bluetooth Shield. 
 
-For more information, please refer to [wiki page](http://www.seeedstudio.com/wiki/index.php?title=Bluetooth_Shield).
+For more information, please refer to [wiki page](http://wiki.seeedstudio.com/Bluetooth_Shield_V2/).
 
     
 ----
